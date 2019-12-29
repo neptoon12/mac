@@ -61,7 +61,7 @@ while(run):
     while(True):
         try:
             lowest=int(input("How Low would you Like to go: "))
-            if(lowest>=tlength):
+            if(lowest>tlength):#seems to work and allows 1 question setups
                 print("\nLowest must be LESS than your Highest\n")
                 continue
             break
