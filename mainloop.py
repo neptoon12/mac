@@ -9,7 +9,7 @@ def mprint(num1,num2):
 def ranpop(default,rangefloor):
     #populate
     numbers=[]
-    for x in range(rangefloor,default+1):#11 is 0 to 10 and produces 11 numbers
+    for x in range(rangefloor,default+1):#inclusive of rangefloor exclusive default+1
         numbers.append(x)
     #randomize
     ran=[]
