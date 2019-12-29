@@ -1,6 +1,5 @@
 def ranpop():
-    #import random
-    #populate
+    #import rando    #populate
     numbers=[]
     for x in range(11):
         numbers.append(x)
