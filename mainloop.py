@@ -6,11 +6,10 @@ def mprint(num1,num2):
     print("+ "+str(num2))
     print("****")
     
-def ranpop():
-    #import random
+def ranpop(default):
     #populate
     numbers=[]
-    for x in range(11):#11 is 0 to 10 and produces 11 numbers
+    for x in range(default+1):#11 is 0 to 10 and produces 11 numbers
         numbers.append(x)
     #randomize
     ran=[]
@@ -22,7 +21,8 @@ def ranpop():
         #print(ran)
     return ran
 
-print("***Welcome to the TT math test***")
+Flag=False# true for doubles # modify structure for future use
+print("***Hello Mikayla, Welcome to the TT math test***")
 print()
 run=True
 #mainloop
@@ -33,35 +33,52 @@ while(run):
     #handing non 0 loop
     while(True):
         try:
-            num=int(input("Please enter a number: "))
+            num=input("Please enter a number: ")
+            if (num=="D"):#for doubles #add HERE FOR FUTURE MODES
+               print("You Have entered Doubles Mode")
+               Flag=True
+               break
+            num=int(num)
             break
         except ValueError:
             print("That is not a number!!! please enter a valid number")
-    ran=ranpop()
+    #Essentially Number of Questions
+    while(True):
+        try:
+            tlength=int(input("How High would you Like to go: "))
+            break
+        except ValueError:
+            print("That is not a number!!! please enter a valid number")
+    
+    ran=ranpop(tlength)
+    #print(ran)
     for i in ran:
         #non num eval
         while(True):
             try:
+                if(Flag):#signal nonstandard FOR DOubles
+                    num=int(i)
                 mprint(num,i)
                 Mnum=int(input("Please enter the answer: "))
                 break
             except ValueError:
                 print("That is not a number!!! please enter a valid number")
+        #int(num)
         if(num+i==Mnum):
-            print("Good Job!!!!")
+            print("Good Job Mikayla!!!!")
             Cans=Cans+1
             print()
         else:
-            print("Incorrect!!")
+            print("Incorrect!!!")
             print()
             print(str(num)+"+"+str(i)+" is: "+str(num+i))
             print("__________")
             time.sleep(4)
             print()
-    print("You have Completed the "+str(num)+" test!\n")
-    print("You Got "+str(Cans)+" Correct")
+    print("Mikayla Completed the test!\n")
+    print("You Got "+str(Cans)+" out of "+str(tlength+1)+" Correct")
     if (Cans==len(ran)):
-        print("YOU GOT THEM ALL CORRECT!!!!!")
+        print("GREAT JOB MIKAYLA! YOU GOT THEM ALL CORRECT!!!!!")
     else:
         print("Try to get them all right next time.\n")
     Continue=str(input("Would You like to continue?\n"))
