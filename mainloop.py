@@ -73,7 +73,6 @@ while(run):
     
 #greetings
 #take in number
-            
 #print question
 #take in answer
 #evaluate
